@@ -139,8 +139,8 @@ const Features = () => {
               <div className="p-6 flex flex-col text-center justify-center items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="5em"
-                  height="5em"
+                  width="4em"
+                  height="4em"
                   fill="currentColor"
                   viewBox="0 0 256 256"
                   class="IconItem_icon__2BpcG"
