@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Hero = () => {
   return (
-    <div className=" mx-auto flex flex-col items-center px-5 py-8 md:flex-row lg:px-24">
+    <div className=" mx-auto flex flex-col items-center px-5 pt-12 pb-8 md:flex-row lg:px-24">
       <div className="mb-16 flex flex-col items-center text-center md:mb-0 md:w-1/2 md:items-start md:pr-16 md:text-left lg:flex-grow lg:pr-24">
         <div className="mb-8 flex flex-row space-x-3"></div>
         <h2 className="text-4xl font-bold text-primary-text sm:text-5xl mb-4">

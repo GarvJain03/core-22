@@ -2,8 +2,10 @@ import React from "react";
 
 const Features = () => {
   return (
-    <div className="w-4/5 mx-auto">
-      <h1 className="mt-8 text-4xl font-bold">Why Tony Airways?</h1>
+    <div className="mx-auto items-center px-5 py-8 md:flex-row lg:px-24">
+      <h1 className="mt-8 text-4xl font-bold text-primary-text">
+        Why Tony Airways?
+      </h1>
       <div className="mx-auto flex flex-col flex-wrap items-center px-5 py-12 md:flex-row lg:px-24">
         <div className="flex flex-wrap -m-4">
           <div className="p-4 md:w-1/3">
