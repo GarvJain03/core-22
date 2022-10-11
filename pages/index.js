@@ -1,3 +1,11 @@
+import Hero from "../components/Home/Hero";
+import Layout from "../components/Layout/Layout";
+import Services from "../components/Home/Services";
 export default function Home() {
-  return <h1 className="text-3xl font-bold p-4">Hello World</h1>;
+  return (
+    <Layout title="Home">
+      <Hero />
+      <Services />
+    </Layout>
+  );
 }
