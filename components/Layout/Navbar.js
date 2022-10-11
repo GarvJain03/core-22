@@ -38,9 +38,7 @@ const Navbar = () => {
       <header className="sticky top-0 z-50 bg-primary-dark shadow-md rounded-md bg-nav-bg">
         <div className="flex p-5 px-8 lg:items-center lg:px-12">
           <Link href="/">
-            <a className="text-2xl font-extrabold text-nav-txt-color">
-              tony airways
-            </a>
+            <img className="w-64" alt="Tony Airways logo" src="logo.png" />
           </Link>
           <button
             onClick={handleToggle}
