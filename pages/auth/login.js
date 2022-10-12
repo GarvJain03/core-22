@@ -1,7 +1,18 @@
 import Layout from "../../components/Layout/Layout";
 import Link from "next/link";
+import React from "react";
+import { signIn } from "next-auth/react";
 
-export default function login() {
+export default function Login() {
+  const [email, setEmail] = React.useState("");
+
+  const sendLoginVerification = (e) => {
+    e.preventDefault();
+
+    // Notice, we are also redirecting users to the protected route instead of the homepage after signing in.
+    signIn("email", { callbackUrl: "/", email });
+  };
+
   return (
     <Layout title="Login">
       <div className="container px-5 lg:py-24 py-12 mx-auto flex flex-wrap items-center">
@@ -12,7 +23,11 @@ export default function login() {
           <h2 className="text-primary-text text-3xl font-bold title-font mb-5">
             Login
           </h2>
-          <form method="get" className="flex flex-col space-y-4">
+          <form
+            method="post"
+            onSubmit={sendLoginVerification}
+            className="flex flex-col space-y-4"
+          >
             <label
               htmlFor="email"
               className="text-primary-text font-bold text-md"
@@ -21,22 +36,11 @@ export default function login() {
             </label>
             <input
               name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               type={`email`}
               className="p-4 text-lg w-full rounded-l-md bg-gray-bg outline-none text-primary-text"
               placeholder="johndoe@example.com"
-              autoComplete="off"
-            />
-            <label
-              htmlFor="password"
-              className="text-primary-text font-bold text-md"
-            >
-              Password
-            </label>{" "}
-            <input
-              name="password"
-              type={`password`}
-              className="p-4 text-lg w-full rounded-l-md bg-gray-bg outline-none text-primary-text"
-              placeholder="********"
               autoComplete="off"
             />
             <button
@@ -46,13 +50,6 @@ export default function login() {
               Login
             </button>
           </form>
-          <p className="text-base text-gray-500 mt-5">
-            No account?{" "}
-            <Link href="/auth/register">
-              <a className="underline">Register</a>
-            </Link>
-            .
-          </p>
         </div>
       </div>
     </Layout>

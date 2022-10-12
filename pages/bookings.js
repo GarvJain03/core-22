@@ -1,10 +1,22 @@
 import Layout from "../components/Layout/Layout";
-import { GoLocation } from "react-icons/go";
-import { AiTwotoneCalendar } from "react-icons/ai";
-import { BsPeople } from "react-icons/bs";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
+import Form from "../components/Bookings/Form";
 
-export default function bookings() {
+export default function Bookings() {
+  const router = useRouter();
+  const { status } = useSession({
+    required: true,
+    onUnauthenticated() {
+      router.push("/auth/login");
+    },
+  });
+
+  if (status === "loading") {
+    return <>Loading...</>;
+  }
+
   return (
     <Layout title="Bookings">
       <div className="container mx-auto px-5 py-6">
@@ -17,56 +29,29 @@ export default function bookings() {
           </p>
         </div>
       </div>
-      <div className="flex flex-row w-5/6 lg:w-4/5 mb-8 mx-auto rounded-md shadow-md bg-white">
-        <div className="flex items-center flex-wrap w-1/4 border-r-2 ml-8 my-2">
-          <div className="flex items-center mb-2">
-            <GoLocation className="mr-2 red" />
-            <h3 className="font-bold">From</h3>
-          </div>
-          <input
-            className="w-5/6 block cursor-pointer py-1 pl-2 outline-none"
-            placeholder="Where from?"
-          />
-        </div>
-        <div className="flex items-center flex-wrap w-1/4 border-r-2 ml-8 my-2">
-          <div className="flex items-center mb-2">
-            <GoLocation className="mr-2 red" />
-            <h3 className="font-bold">To</h3>
-          </div>
-          <input
-            className="w-5/6 block cursor-pointer py-1 pl-2 outline-none"
-            placeholder="Where are you going?"
-          />
-        </div>
-        <div className="flex items-center flex-wrap w-1/4 border-r-2 ml-8 my-2">
-          <div className="flex items-center mb-2">
-            <AiTwotoneCalendar className="mr-2 red" />
-            <h3 className="font-bold">Dates</h3>
-          </div>
-          <input
-            type="date"
-            className="w-5/6 block cursor-pointer py-1 pl-2 outline-none"
-            placeholder="Add dates?"
-          />
-        </div>
-        <div className="flex items-center flex-wrap w-1/4 ml-8 my-2">
-          <div className="flex items-center mb-2">
-            <BsPeople className="mr-2 red" />
-            <h3 className="font-bold">Travellers</h3>
-          </div>
-          <input
-            type="number"
-            className="w-5/6 block cursor-pointer py-1 pl-2 outline-none"
-            placeholder="No. of travellers"
-          />
-        </div>
+      <Form />
+      <div className="flex justify-center items-center">
+        <button
+          type="submit"
+          className="mx-2 my-4 flex items-center justify-center space-x-2 rounded-lg px-8 py-3 text-white transition duration-200 ease-in-out hover:bg-opacity-90 bg-blue-bg active:outline-blue-bg"
+        >
+          <span className="text-md font-medium lg:text-lg">Book</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={1.3}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+            />
+          </svg>
+        </button>
       </div>
-      <a
-        className="block w-fit mx-auto transition duration-200 ease-in-out hover:bg-nav-txt-color hover:text-white border-nav-txt-color px-4 py-2 border-2 rounded-md text-center mb-8"
-        href="/seatselection"
-      >
-        Next
-      </a>
     </Layout>
   );
 }

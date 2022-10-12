@@ -14,10 +14,6 @@ const links = [
     url: "/about",
   },
   {
-    name: "Bookings",
-    url: "/bookings",
-  },
-  {
     name: "Contact Us",
     url: "/contact",
   },
