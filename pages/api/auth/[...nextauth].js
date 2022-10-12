@@ -14,8 +14,8 @@ const options = {
         host: "smtp.gmail.com",
         secure: true,
         auth: {
-          user: process.env.EMAIL_USERNAME,
-          pass: process.env.EMAIL_PASSWORD,
+          user: process.env.NEXT_PUBLIC_EMAIL_USERNAME,
+          pass: process.env.NEXT_PUBLIC_EMAIL_PASSWORD,
         },
         tls: {
           rejectUnauthorized: false,
