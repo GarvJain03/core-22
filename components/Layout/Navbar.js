@@ -35,7 +35,7 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-50 bg-gray-bg">
+      <header className="sticky top-0 z-50 bg-gray-bg w-full">
         <div className="flex p-5 px-8 lg:items-center lg:px-12">
           <Link href="/">
             <img
