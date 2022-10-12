@@ -1,7 +1,8 @@
 import Layout from "../components/Layout/Layout";
 import { GoLocation } from "react-icons/go";
 import { AiTwotoneCalendar } from "react-icons/ai";
-import { BsPeople } from "react-icons/bs ";
+import { BsPeople } from "react-icons/bs";
+import Link from "next/link";
 
 export default function bookings() {
   return (
@@ -62,7 +63,7 @@ export default function bookings() {
       </div>
       <a
         className="block w-fit mx-auto transition duration-200 ease-in-out hover:bg-nav-txt-color hover:text-white border-nav-txt-color px-4 py-2 border-2 rounded-md text-center mb-8"
-        href="./"
+        href="/seatselection"
       >
         Next
       </a>
