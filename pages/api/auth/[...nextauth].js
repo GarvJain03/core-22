@@ -1,34 +1,33 @@
-import NextAuth from "next-auth/next";
+import NextAuth from "next-auth";
 import EmailProvider from "next-auth/providers/email";
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
-import MongoClientPromise from "../../../lib/mongodb";
+import clientPromise from "../../../lib/mongodb";
 
-const options = {
-  site: process.env.NEXTAUTH_URL,
-  secret: process.env.NEXTAUTH_SECRET,
-  adapter: MongoDBAdapter(MongoClientPromise),
+export default NextAuth({
+  session: {
+    strategy: "jwt",
+  },
+
+  pages: {
+    signIn: "/auth/login",
+  },
+
+  //The adapter to the database we will use to store the data
+  adapter: MongoDBAdapter(clientPromise),
+
+  //The providers are the autentication method
   providers: [
     EmailProvider({
       server: {
-        port: 465,
-        host: "smtp.gmail.com",
-        secure: true,
+        host: process.env.EMAIL_SERVER_HOST,
+        port: process.env.EMAIL_SERVER_PORT,
         auth: {
-          user: process.env.NEXT_PUBLIC_EMAIL_USERNAME,
-          pass: process.env.NEXT_PUBLIC_EMAIL_PASSWORD,
+          user: process.env.EMAIL_SERVER_USER,
+          pass: process.env.EMAIL_SERVER_PASSWORD,
         },
-        tls: {
-          rejectUnauthorized: false,
-        },
-        from: process.env.NEXT_PUBLIC_EMAIL_FROM,
       },
+      from: process.env.EMAIL_FROM,
+      maxAge: 24 * 60 * 60,
     }),
   ],
-  session: {
-    jwt: true,
-    maxAge: 30 * 24 * 60 * 60, // the session will last 30 days
-  },
-};
-
-// eslint-disable-next-line import/no-anonymous-default-export
-export default (req, res) => NextAuth(req, res, options);
+});
