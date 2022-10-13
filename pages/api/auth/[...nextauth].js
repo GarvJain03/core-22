@@ -28,7 +28,6 @@ const options = {
     jwt: true,
     maxAge: 30 * 24 * 60 * 60, // the session will last 30 days
   },
-  secret: process.env.NEXT_PUBLIC_NEXTAUTH_SECRET,
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
