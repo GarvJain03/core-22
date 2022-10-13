@@ -4,8 +4,8 @@ import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 import MongoClientPromise from "../../../lib/mongodb";
 
 const options = {
-  site: process.env.NEXTAUTH_URL,
-  secret: process.env.NEXTAUTH_SECRET,
+  site: process.env.NEXT_PUBLIC_NEXTAUTH_URL,
+  secret: process.env.NEXT_PUBLIC_NEXTAUTH_SECRET,
   adapter: MongoDBAdapter(MongoClientPromise),
   providers: [
     EmailProvider({
