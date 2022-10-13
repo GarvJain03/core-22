@@ -2,8 +2,8 @@ import React from "react";
 
 const Header = () => {
   return (
-    <div className="lg:w-4/5 mx-auto flex border-b-2 space-x-24 border-black pb-8 mb-8">
-      <div className="w-1/2 mt-4 mr-8">
+    <div className="lg:mx-24 mx-auto flex border-b-2 space-x-24 border-black pb-8 mb-8">
+      <div className="w-full mt-4 mr-8">
         <h1 className="mt-8 text-4xl font-bold">About Tony Airways</h1>
         <p className="mt-8 text-lg text-justify">
           Sed ut perspiciatis unde omnis iste natus error sit voluptatem
@@ -19,10 +19,7 @@ const Header = () => {
           ea commodi consequatur?
         </p>
       </div>
-      <img
-        className="w-1/3"
-        src="https://res.cloudinary.com/kentcdodds-com/image/upload/w_1300,q_auto,f_auto/kentcdodds.com/illustrations/kody-flying_yellow"
-      />
+      <img className="w-1/3" src="/images/plane.png" />
     </div>
   );
 };
