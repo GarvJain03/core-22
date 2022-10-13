@@ -15,10 +15,5 @@ export default NextAuth({
     }),
   ],
 
-  callbacks: {
-    session: async (session, user) => {
-      session.id = user.id;
-      return Promise.resolve(session);
-    },
-  },
+  secret: process.env.NEXTAUTH_SECRET,
 });
