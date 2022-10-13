@@ -1,6 +1,6 @@
 import NextAuth from "next-auth";
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
-import clientPromise from "../../../lib/mongodb";
+// import clientPromise from "../../../lib/mongodb";
 import GoogleProvider from "next-auth/providers/google";
 
 export default NextAuth({
@@ -10,4 +10,7 @@ export default NextAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
   ],
+
+  secret: "thisisasupersecretsecret",
+  debug: true,
 });

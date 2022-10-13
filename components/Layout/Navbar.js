@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { ImCross } from "react-icons/im";
-import { useRouter } from "next/router";
+import { signOut, useSession } from "next-auth/react";
 
 const links = [
   {
@@ -27,7 +27,11 @@ const Navbar = () => {
     setShowNavbar(!showNavbar);
   };
 
-  const router = useRouter();
+  const { data: session, status } = useSession();
+
+  if (status === "loading") {
+    return <>Loading...</>;
+  }
 
   return (
     <>
@@ -60,11 +64,18 @@ const Navbar = () => {
             ))}
           </div>
 
-          <Link href="/auth/login">
+          {!session && (
+            <Link href="/auth/login">
+              <a className="hidden border-2 rounded-full border-nav-txt-color px-4 py-3 text-lg font-medium text-nav-txt-color transition duration-200 ease-in-out hover:bg-nav-txt-color hover:text-white lg:block">
+                Login
+              </a>
+            </Link>
+          )}
+          {session && (
             <a className="hidden border-2 rounded-full border-nav-txt-color px-4 py-3 text-lg font-medium text-nav-txt-color transition duration-200 ease-in-out hover:bg-nav-txt-color hover:text-white lg:block">
-              Login
+              <button onClick={signOut}>Sign out</button>
             </a>
-          </Link>
+          )}
         </div>
         {showNavbar && (
           <div className="flex flex-col space-y-1 bg-primary-dark py-5 px-4 transition duration-200 ease-in-out lg:hidden">
@@ -75,9 +86,9 @@ const Navbar = () => {
                 </a>
               </Link>
             ))}
-            <Link href="/check-in">
+            <Link href="/auth/login">
               <a className="rounded-md p-4 text-xl font-medium text-nav-txt-color hover:bg-secondary-dark">
-                Check In
+                Login
               </a>
             </Link>
           </div>
