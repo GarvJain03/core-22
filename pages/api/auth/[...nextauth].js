@@ -20,7 +20,7 @@ const options = {
         tls: {
           rejectUnauthorized: false,
         },
-        from: process.env.EMAIL_FROM,
+        from: process.env.NEXT_PUBLIC_EMAIL_FROM,
       },
     }),
   ],
@@ -28,7 +28,7 @@ const options = {
     jwt: true,
     maxAge: 30 * 24 * 60 * 60, // the session will last 30 days
   },
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXT_PUBLIC_NEXTAUTH_SECRET,
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
