@@ -17,8 +17,10 @@ const Hero = () => {
           Tony Airways
         </h2>
         <p className="lg:text-justify text-xl leading-8 text-gray-400 mb-4">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam
-          voluptatem repudiandae atque accusamus molestiae et?
+          Air travel is fun. We, at Tony Airways have always aimed at making it
+          more fun for our passengers. We believe that in a world where
+          passengers have become numbers, a personal approach is key to ensure
+          you get the most out of your flying experience
         </p>
         <div className="flex space-x-2">
           {!session && (
