@@ -14,9 +14,9 @@ export default function Bookings({ data }) {
   const router = useRouter();
   const { status } = useSession({
     required: true,
-    // onUnauthenticated() {
-    //   router.push("/auth/login");
-    // },
+    onUnauthenticated() {
+      router.push("/auth/login");
+    },
   });
 
   if (status === "loading") {
