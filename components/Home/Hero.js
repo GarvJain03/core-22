@@ -35,7 +35,11 @@ const Hero = () => {
                   Book a Flight
                 </a>
               </Link>
-              <button onClick={signOut}>Sign out</button>
+              <Link href="/shop">
+                <a className="text-primary-text text-lg rounded-full border-primary-text border-2 px-4 py-2 transition duration-200 ease-in-out hover:bg-primary-text hover:text-white">
+                  Shop
+                </a>
+              </Link>
             </>
           )}
         </div>
