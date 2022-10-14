@@ -12,6 +12,7 @@ import "jspdf-autotable";
 
 export default function Bookings({ data }) {
   const router = useRouter();
+  const [seat, setSeat] = useState("");
   const { status } = useSession({
     required: true,
     onUnauthenticated() {
@@ -95,7 +96,6 @@ export default function Bookings({ data }) {
     "D15",
     "D16",
   ];
-  const [seat, setSeat] = useState("");
   console.log(seat);
   const setSelectedSeat = (evt, selectedSeat) => {
     evt.preventDefault();
