@@ -11,17 +11,17 @@ import jsPDF from "jspdf";
 import "jspdf-autotable";
 
 export default function Bookings({ data }) {
-  // const router = useRouter();
-  // const { status } = useSession({
-  //   required: true,
-  //   // onUnauthenticated() {
-  //   //   router.push("/auth/login");
-  //   // },
-  // });
+  const router = useRouter();
+  const { status } = useSession({
+    required: true,
+    // onUnauthenticated() {
+    //   router.push("/auth/login");
+    // },
+  });
 
-  // if (status === "loading") {
-  //   return <>Loading...</>;
-  // }
+  if (status === "loading") {
+    return <>Loading...</>;
+  }
 
   const aSeats = [
     "A1",
