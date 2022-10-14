@@ -6,17 +6,13 @@ const Header = () => {
       <div className="w-full mt-4 mr-8">
         <h1 className="mt-8 text-4xl font-bold">About Tony Airways</h1>
         <p className="mt-8 text-lg text-justify">
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
-          ab illo inventore veritatis et quasi architecto beatae vitae dicta
-          sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-          aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos
-          qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui
-          dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed
-          quia non numquam eius modi tempora incidunt ut labore et dolore magnam
-          aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum
-          exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex
-          ea commodi consequatur?
+          In addition to our redesigned brand aesthetic, we present you with our
+          web-based application, which will facilitate one's journey and make it
+          a 'fun' and luxurious experience for them. You can now check-in via
+          our mobile app and enjoy in-flight shopping and other services at your
+          leisure. We believe that in a world stacked with numbers, we are
+          taking the aid of technology to deliver an unparalleled and
+          unforgettable service to our commuters.
         </p>
       </div>
       <img className="w-1/3" src="/images/plane.png" />
